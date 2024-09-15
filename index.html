@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Furniture Website</title>
+    <!-- LInk To CSS -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+
+    <!--======= Google Fonts =========-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!--======= Bootstrap icons =======-->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+            /* Luxury Font */
+            color: #333;
+        }
+
+        body {
+            background-color: #fdfdfd;
+            /* Light, airy background */
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header .logo img {
+            width: 120px;
+            height: auto;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            justify-content: flex-end;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar li a:hover {
+            color: #c69c6d;
+            /* Soft gold tone for hover */
+        }
+
+        /* Home Section */
+        .home {
+            height: 100vh;
+            background-image: url('images/Products/wallpaper.avif');
+            /* Replace with a luxurious image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .home h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .home h1 span {
+            color: #c69c6d;
+        }
+
+        .home p {
+            color: #f0f0f0;
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .home .btn {
+            background-color: #c69c6d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .home .btn:hover {
+            background-color: #a77f56;
+        }
+
+        /* Shop Section */
+        .shop {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .shop .heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .shop .heading h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .shop .heading span {
+            font-size: 1.2rem;
+            color: #c69c6d;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 100px 20px;
+            background-color: #fff;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            /* color: #333; */
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .about-text a.btn {
+            background-color: #c69c6d;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-text a.btn:hover {
+            background-color: #a77f56;
+        }
+
+        /* Brands Section */
+        .brands-container img {
+            width: 150px;
+            margin: 0 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .brands-container img:hover {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fdfdfd;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-box h2 {
+            font-size: 1.8rem;
+            max-width: 200px !important;
+            color: #c69c6d;
+            margin-bottom: 20px;
+        }
+
+        .footer-box p,
+        .footer-box li {
+            font-size: 1rem;
+            color: #f0f0f0;
+            margin: 10px 0;
+        }
+
+        .footer-box li a {
+            color: #fdfdfd;
+            text-decoration: none;
+        }
+
+        .footer-box li a:hover {
+            color: #c69c6d;
+        }
+
+        .footer-box {
+            padding: 20px;
+            width: 80%;
+        }
+
+        @media (min-width: 600px) {
+            .footer-box {
+                width: 45%;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .footer-box {
+                width: 24%;
+            }
+        }
+
+        .social i {
+            font-size: 1.5rem;
+            margin: 10px;
+            color: #fdfdfd;
+            transition: color 0.3s ease;
+        }
+
+        .social i:hover {
+            color: #c69c6d;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 10px;
+            background-color: #222;
+            color: #c69c6d;
+        }
+
+        #logo {
+            width: 100px;
+        }
+
+        #about_img {
+            width: 40vw;
+        }
+
+        .contact-info>h3,
+        .contact-info>span {
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+        }
+
+        .footer-box>h3,
+        .footer-box>h2 {
+            font-size: 50px;
+            color: #ffffff;
+        }
+
+        .contact-content-data {
+            width: 80%;
+            margin: auto;
+        }
+
+        .contacto {
+            text-align: center;
+        }
+
+        .contact-content-img img {
+            width: 20rem;
+            display: block;
+            margin: auto auto;
+        }
+
+        iframe {
+            height: 1500px;
+            width: 100%;
+        }
+
+        @media (min-width: 1500px) {
+            iframe {
+                height: 900px;
+            }
+        }
+
+        .about {
+            background-color: #333;
+        }
+
+        .about-text {
+            max-width: 60%;
+        }
+
+        .about>* {
+            color: white;
+        }
+
+        .brands-container {
+            background-color: #333;
+        }
+
+        .copyright>* {
+            color: #c69c6d;
+            /* min-width: 100px; */
+            padding: 0 20px;
+        }
+
+        #trishna {
+            margin-left: 10px;
+            color: #c69c6d;
+            text-decoration: none;
+        }
+
+        .copyright {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #conttt {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        #contact-us {
+            color: #333;
+            /* font-weight: var(--font-bold); */
+            font-size: var(--h2-font-size);
+        }
+
+        .contact {
+            padding-top: 170px !important;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        section {
+            padding-top: 100px;
+        }
+
+        /* section:has(form) {
+      width: 100%;
+    } */
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #333;
+            outline: none;
+            background-color: #fff;
+        }
+
+        form button {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #4547d9;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 500px) {
+            form {
+                padding: 15px;
+            }
+
+            form input,
+            form textarea,
+            form button {
+                font-size: 14px;
+            }
+        }
+
+        main {
+            width: 80%;
+            margin: auto;
+        }
+
+        @media(min-width:1200px) {
+            main {
+                display: flex;
+                justify-content: space-evenly;
+                /* flex-wrap: wrap; */
+            }
+        }
+
+        .contact-img {
+            /* width: 280px !important; */
+            /* height */
+        }
+
+        * {
+            /* font-weight: var(--font-bold); */
+            line-height: 31.25px;
+            font-family: 'DM Sans';
+        }
+
+        #contact-us {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">
+            <img id="logo" src="./images/2-removebg-preview.png" alt="">
+            <!-- Brand <span>X.</span> -->
+        </a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#partners">Our Partners</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+    <!-- Home -->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1><Span>Craft</Span>Your Dream <br> With Our <span>Customized Furniture</span></h1>
+            <p>At Shree Shyam Furnitures, we believe that every home deserves personalized comfort. Our expert
+                craftsmanship blends style, functionality, and innovation to bring your vision to life.</p>
+            <a href="#shop" class="btn">Explore Our Collection</a>
+        </div>
+    </section>
+
+    <!-- Shop -->
+    <section class="shop" id="shop">
+        <div class="heading">
+            <span>New Arrival</span>
+            <h2>Shop Now</h2>
+        </div>
+        <!-- Content -->
+        <iframe src="./newhtml.html" style="width:100%; height:2000px;" frameborder="0"></iframe>
+
+    </section>
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img id="about_img" src="./images/2-removebg-preview.png" alt="About Shree Shyam Furnitures">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>Transforming Spaces with Custom Furniture</h2>
+            <p>With over a decade of experience, Shree Shyam Furnitures specializes in creating customized furniture
+                that fits your unique style and needs. Whether it’s for your living room, bedroom, office, or any space
+                in between, we design pieces that match your vision.</p>
+            <p>We use the finest materials, ensuring durability without compromising on aesthetics. From
+                conceptualization to installation, we work closely with you to craft furniture that’s tailor-made for
+                your space.</p>
+            <a href="#shop" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="brands" id="partners">
+        <div class="heading">
+            <span>Our Partners</span>
+            <h2>Trusted by Top Brands</h2>
+        </div>
+        <div class="brands-container">
+            <img src="./images/Products/part1-removebg-preview.png" alt="Google">
+            <img src="./images/Products/part2-removebg-preview.png" alt="Amazon">
+            <!-- <img src="img/netflix.png" alt="Netflix">
+            <img src="img/tesla.png" alt="Tesla">
+            <img src="img/starbucks.png" alt="Starbucks">
+            <img src="img/zoom.png" alt="Zoom"> -->
+        </div>
+    </section>
+
+    <!-- <section class="newsletter" id="contact">
+        <h2>Subscribe To Newsletter</h2>
+        <div class="news-box">
+            <input type="text" placeholder="Enter Your Email...">
+            <a href="#" class="btn">Subscribe</a>
+        </div>
+    </section> -->
+    <!-- Footer -->
+
+
+
+
+    <!-- Enquiry form -->
+    <section id="conttt">
+
+
+        <section>
+            <h1 id="contact-us">
+                Contact Us!
+            </h1>
+            <br /><br />
+            <form action="https://formcarry.com/s/BeDI48n4Le1" method="POST" enctype="multipart/form-data">
+                <label for="name">Your Name (required):</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+                <label for="mobile">Your Mobile Number (required):</label>
+                <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number"
+                    pattern="[0-9]{10}">
+
+                <label for="email">Your Email (required):</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+                <label for="message">Your Message (optional):</label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+
+                <!-- Submit Button -->
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+
+
+
+        <!-- Address -->
+        <!-- Number -->
+        <!-- Mail --->
+        <section class="contact grid" id="contact">
+            <div class="contact-container">
+                <div class="contact-content-data">
+                    <div class="span-contact bottomRevealMedium contacto">
+                        <span><i class="bi bi-geo-alt"></i> &nbsp; &nbsp; &nbsp;WHS Block 2, DDA, Ware Housing Scheme,
+                            Kirti Nagar, Delhi, 110015
+                        </span>
+                        <br />
+                        <span><i class="bi bi-envelope "></i> &nbsp; &nbsp; &nbsp;sunildiwan.sd@gmail.com</span>
+                    </div>
+                    <button class="home-button bottomRevealLarge"
+                        onclick="window.location.href='//api.whatsapp.com/send?phone=+918920522526&text=Hello sir, I wanted to talk to you about ';">
+                        <i class="bi bi-whatsapp"></i> Schedule your appointment
+                    </button>
+                </div>
+                <div class="contact-content-img topRevealLarge">
+                    <img class="contact-img"
+                        onclick="window.location.href='https://maps.google.com/?q=WHS Block 2, DDA, Ware Housing Scheme, Kirti Nagar, Delhi, 110015';"
+                        target="_blank" src="../images/Products/maps.png" alt="" />
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+
+    <section class="footer" id="footer">
+        <div class="footer-box">
+            <h2>Shree Shyam <span>Furnitures</span></h2>
+            <p>Your one-stop solution for premium, customized furniture designs that combine style and comfort.</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Services</h3>
+            <li><a href="#">Custom Furniture</a></li>
+            <li><a href="#">Design Consultation</a></li>
+            <li><a href="#">Installation</a></li>
+            <li><a href="#">Support</a></li>
+        </div>
+        <div class="footer-box">
+            <h3>Categories</h3>
+            <li><a href="#">Sofas</a></li>
+            <li><a href="#">Beds</a></li>
+            <li><a href="#">Dining Tables</a></li>
+            <li><a href="#">Office Furniture</a></li>
+        </div>
+        <div class="footer-box contact-info">
+            <h3>Contact</h3>
+            <span>Paschim Vihar, New Delhi, India</span>
+            <span>+91 8920522526</span>
+            <span>info@shreeshyamfurnitures.com</span>
+            <span>sunildiwan.sd@gmail.com</span>
+        </div>
+    </section>
+
+
+    <!------- SCROLL TOP ------------>
+    <!-- <a id="scrollup" class="back-top" href="#home">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="20" fill="grey" />
+      <path d="M20 27V13" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M13 20L20 13L27 20" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+
+  </a> -->
+    <a id="call-button" href="tel:+918920522526"
+        style="position: fixed; bottom: 20px; left: 20px; z-index: 1000; text-decoration: none;">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="cursor: pointer; transition: transform 0.3s ease;">
+            <circle cx="20" cy="20" r="30" fill="#c69c6d" />
+            <!-- Phone icon -->
+            <path
+                d="M15.5 12.5L19.5 16.5C19.7 16.7 19.7 17 19.5 17.2L18 18.8C18 18.9 18 19.1 18.1 19.2C19.3 21 20.8 22.5 22.6 23.7C22.7 23.8 22.9 23.8 23 23.8L24.8 22.3C25 22.1 25.3 22.1 25.5 22.3L29.5 26.3C29.7 26.5 29.7 26.8 29.5 27C28.3 28.2 26.6 28.8 24.8 28.8C22.8 28.8 20.1 27.7 16.9 24.5C13.7 21.3 12.6 18.6 12.6 16.6C12.6 14.8 13.2 13.1 14.4 11.9C14.6 11.7 14.9 11.7 15.1 11.9L15.5 12.5Z"
+                fill="white" />
+        </svg>
+    </a>
+
+
+    <div class="copyright">
+        <p>&#169; Shree Shyam Furnitures All Right Reserved.</p>
+        <span>"Designed and Developed By "<a href="trishnawebworks.co" id="trishna">Trishna</a></span>
+    </div>
+    <!-- Link To JS -->
+    <!-- <script src="main.js"></script> -->
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Blinking effect
+    setInterval(function () {
+        var button = document.querySelector('#call-button svg circle');
+        button.style.opacity = (button.style.opacity == '1' || button.style.opacity === '') ? '0.5' : '1';
+    }, 500);
+
+    // Hover scale effect
+    document.getElementById('call-button').addEventListener('mouseover', function () {
+        this.querySelector('svg').style.transform = 'scale(1.1)';
+    });
+
+    document.getElementById('call-button').addEventListener('mouseout', function () {
+        this.querySelector('svg').style.transform = 'scale(1)';
+    });
+</script>
+
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+
+    menu.onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
+
+</html>
