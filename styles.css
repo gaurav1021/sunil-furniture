@@ -328,7 +328,7 @@ header {
     background: var(--main-color);
   }
   .about {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     text-align: center;
   }
   .about-img {
